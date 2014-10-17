@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="PlasmaView">
+        <attr name="animation" format="string" />
+        <attr name="duration" format="string" />
+        <attr name="delay" format="string" />
+        <attr name="distance" format="string" />
+        <attr name="auto" format="boolean" />
+        <attr name="keepData" format="boolean" />
+    </declare-styleable>
+    
+</resources>

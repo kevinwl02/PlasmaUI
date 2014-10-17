@@ -1,0 +1,7 @@
+package gmk.kwl.plasmaui.plasma;
+
+/**
+ * Created by Kevin Wong on 13/03/14.
+ */
+public enum PatternType {
+}
