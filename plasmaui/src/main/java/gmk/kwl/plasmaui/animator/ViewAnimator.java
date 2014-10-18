@@ -11,6 +11,7 @@ import gmk.kwl.plasmaui.animation.PlasmaAnimation;
 
 /**
  * Created by Kevin Wong on 13/03/14.
+ * Class in charge of creating the animations and executing them
  */
 public class ViewAnimator {
 

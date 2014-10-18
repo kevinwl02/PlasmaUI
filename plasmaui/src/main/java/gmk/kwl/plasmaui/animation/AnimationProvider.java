@@ -9,6 +9,7 @@ import java.util.Map;
 
 /**
  * Created by Kevin Wong on 19/03/14.
+ * Class in charge of instantiating animations
  */
 public class AnimationProvider {
 

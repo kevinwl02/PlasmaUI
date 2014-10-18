@@ -2,6 +2,7 @@ package gmk.kwl.plasmaui.values;
 
 /**
  * Created by Kevin Wong on 14/03/14.
+ * Default values to be used when non specified
  */
 public class PlasmaDefaultValues {
     public static long DEFAULT_DURATION_MILLIS = 500;

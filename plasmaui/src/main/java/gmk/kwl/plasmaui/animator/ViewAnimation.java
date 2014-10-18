@@ -7,6 +7,7 @@ import gmk.kwl.plasmaui.animation.AnimationType;
 
 /**
  * Created by Kevin Wong on 14/03/14.
+ * View animation model
  */
 public class ViewAnimation extends AnimationProperties{
     private AnimationType animationType;

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 /**
  * Created by Kevin Wong on 20/03/14.
+ * Animation properties model
  */
 public class AnimationProperties {
 

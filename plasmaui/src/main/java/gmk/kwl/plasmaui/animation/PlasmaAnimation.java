@@ -8,6 +8,7 @@ import android.view.animation.TranslateAnimation;
 
 /**
  * Created by Kevin Wong on 20/03/14.
+ * Base animation class that handles common operation of the Plasma animation classes
  */
 public abstract class PlasmaAnimation {
 

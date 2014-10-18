@@ -7,6 +7,7 @@ import android.util.TypedValue;
 
 /**
  * Created by Kevin Wong on 18/10/14.
+ * Phone display helper
  */
 public class DisplayHelper {
 

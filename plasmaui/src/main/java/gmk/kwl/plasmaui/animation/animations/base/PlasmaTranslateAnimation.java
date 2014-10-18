@@ -11,6 +11,7 @@ import gmk.kwl.plasmaui.helpers.DisplayHelper;
 
 /**
  * Created by Kevin Wong on 20/03/14.
+ * Base animation class for plasma animations that require translation
  */
 public abstract class PlasmaTranslateAnimation extends PlasmaAnimation {
 

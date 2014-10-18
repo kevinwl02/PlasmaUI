@@ -6,6 +6,7 @@ import gmk.kwl.plasmaui.animation.AnimationType;
 
 /**
  * Created by Kevin Wong on 03/03/14.
+ * The main java animation interface version. Not yet implemented
  */
 public class Plasma {
 

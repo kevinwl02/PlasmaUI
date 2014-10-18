@@ -4,6 +4,7 @@ import android.view.animation.Animation;
 
 /**
  * Created by Kevin Wong on 20/03/14.
+ * Direction values for animations that involve translation
  */
 public enum AnimationDirection {
     Left,Right,Up,Down,None;

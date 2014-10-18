@@ -4,6 +4,7 @@ import android.transition.Fade;
 
 /**
  * Created by Kevin Wong on 04/03/14.
+ * Animation types. Only those animation specified here can be executed.
  */
 public enum AnimationType {
     FadeIn, FadeOut, Move, Shake, Bounce, Pop, ZoomIn, ZoomOut, RotateIn, RotateOut, Slide, RotateInPlace;
