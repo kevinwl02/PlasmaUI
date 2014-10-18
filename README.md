@@ -3,6 +3,8 @@ PlasmaUI
 
 Android animation made simple.
 
+![PlasmaUI](/../github-media/media/presentation.gif?raw=true)
+
 PlasmaUI is an animation library that lets you animate your view by simply adding code to your layout file (as little as you want it to be). No need to create extra xml files or write any Java code to get you animations up and running. Let the animations be where they should. Of course, you can still trigger animations inside your Java classes. 
 There is a demo application in the source code to see it move, and you can check the guide below.
 
