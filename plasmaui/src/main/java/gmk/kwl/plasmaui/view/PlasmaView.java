@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.View;
 import android.widget.FrameLayout;
 
 import java.util.ArrayList;
@@ -28,51 +29,66 @@ public class PlasmaView extends FrameLayout {
 
     private ArrayList<ViewAnimation> viewAnimations;
 
+    /**
+     * View will parse animations at creation time.
+     * @param context
+     * @param attrs
+     */
     public PlasmaView(Context context, AttributeSet attrs) {
         super(context, attrs);
 
         this.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
 
         // Extract custom plasma attributes
-        TypedArray attributeArray = context.obtainStyledAttributes(attrs, R.styleable.PlasmaView);
+        final TypedArray attributeArray = context.obtainStyledAttributes(attrs, R.styleable.PlasmaView);
 
-        String animations = cleanInput(attributeArray.getString(R.styleable.PlasmaView_animation));
-        String durations = cleanInput(attributeArray.getString(R.styleable.PlasmaView_duration));
-        String delays = cleanInput(attributeArray.getString(R.styleable.PlasmaView_delay));
-        String distances = cleanInput(attributeArray.getString(R.styleable.PlasmaView_distance));
-        Boolean auto = attributeArray.getBoolean(R.styleable.PlasmaView_auto, true);
-        Boolean keepData = attributeArray.getBoolean(R.styleable.PlasmaView_keepData, true);
+        final String animations = cleanInput(attributeArray.getString(R.styleable.PlasmaView_animation));
+        final String durations = cleanInput(attributeArray.getString(R.styleable.PlasmaView_duration));
+        final String delays = cleanInput(attributeArray.getString(R.styleable.PlasmaView_delay));
+        final String distances = cleanInput(attributeArray.getString(R.styleable.PlasmaView_distance));
+        final Boolean auto = attributeArray.getBoolean(R.styleable.PlasmaView_auto, true);
+        final Boolean keepData = attributeArray.getBoolean(R.styleable.PlasmaView_keepData, true);
 
         attributeArray.recycle();
 
         this.parseAnimations(animations, durations, delays, distances);
 
         if (auto)
-            ViewAnimator.performMultianimationOnView(this, this.viewAnimations, false);
+            startAnimations(false);
 
         if (!keepData)
             this.viewAnimations = null;
     }
 
     /**
-     * Starts previously defined animations
+     * Starts previously defined animation in the view.
+     * @param recursive If true, loops through all children of class PlasmaView to start their animations.
      */
-    public void startAnimations() {
+    public void startAnimations(boolean recursive) {
         if (this.viewAnimations != null)
             ViewAnimator.performMultianimationOnView(this, this.viewAnimations, true);
+
+        if (recursive) {
+            for (int i = 0; i < this.getChildCount(); i++) {
+                final View childView = this.getChildAt(i);
+                if (childView instanceof PlasmaView) {
+                    ((PlasmaView) childView).startAnimations(true);
+                }
+            }
+        }
     }
 
     // ==============================
-    // Value extracting
+    // Private methods
     // ==============================
 
     private void parseAnimations(String animations, String durations, String delays, String distances) {
 
         // Extracting components
-        String animationComponents[] = this.getComponents(animations);
-        String durationComponents[] = this.getComponents(durations);
-        String delayComponents[] = this.getComponents(delays);
-        String distanceComponents[] = this.getComponents(distances);
+        final String animationComponents[] = this.getComponents(animations);
+        final String durationComponents[] = this.getComponents(durations);
+        final String delayComponents[] = this.getComponents(delays);
+        final String distanceComponents[] = this.getComponents(distances);
 
         // Create animation properties
         viewAnimations = new ArrayList<ViewAnimation>();
@@ -154,7 +170,7 @@ public class PlasmaView extends FrameLayout {
 
         if (subComponents.length > 1) {
 
-            ArrayList<String> properties = new ArrayList<String>();
+            final ArrayList<String> properties = new ArrayList<String>();
             for (int i = 1; i < subComponents.length; i++) {
                 properties.add(subComponents[i]);
             }

@@ -1,0 +1,97 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    tools:context="gmk.kwl.plasmaui.plasmademo.MainActivity">
+
+    <gmk.kwl.plasmaui.view.PlasmaView
+        custom:duration="1000"
+        custom:animation="fadein:left"
+        android:layout_height="100dp"
+        android:layout_width="fill_parent"
+        android:background="#5ce">
+    </gmk.kwl.plasmaui.view.PlasmaView>
+
+    <gmk.kwl.plasmaui.view.PlasmaView
+        custom:delay="1100"
+        custom:animation="pop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp">
+        <TextView
+            android:text="PlasmaUI"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FFF"
+            android:textSize="50dp"
+            />
+    </gmk.kwl.plasmaui.view.PlasmaView>
+
+    <gmk.kwl.plasmaui.view.PlasmaView
+        custom:delay="1600;1600"
+        custom:animation="rotatein+fadein"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="120dp">
+        <TextView
+            android:text="This is"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#bbb"
+            android:textSize="30dp"
+            />
+    </gmk.kwl.plasmaui.view.PlasmaView>
+
+    <gmk.kwl.plasmaui.view.PlasmaView
+        custom:delay="2200;2200"
+        custom:animation="rotatein:-30+fadein"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="160dp">
+        <TextView
+            android:text="an AMAZING"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#bbb"
+            android:textSize="30dp"
+            />
+    </gmk.kwl.plasmaui.view.PlasmaView>
+
+    <gmk.kwl.plasmaui.view.PlasmaView
+        custom:delay="2800;2900"
+        custom:duration="400;500"
+        custom:animation="fadein+shake"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="200dp">
+        <TextView
+            android:text="UI"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#bbb"
+            android:textSize="40dp"
+            />
+    </gmk.kwl.plasmaui.view.PlasmaView>
+
+    <gmk.kwl.plasmaui.view.PlasmaView
+        custom:delay="3500"
+        custom:distance="200"
+        custom:animation="bounce:up"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="-60dp"
+        android:layout_marginLeft="30dp">
+        <ImageView
+            android:layout_width="110dp"
+            android:layout_height="150dp"
+            android:src="@drawable/droidhi"/>
+    </gmk.kwl.plasmaui.view.PlasmaView>
+
+</RelativeLayout>
