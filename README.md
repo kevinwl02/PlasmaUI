@@ -170,6 +170,7 @@ If the `recursive` parameter is set to `true` and the plasma view has children v
 ##Author
 
 All your comments and suggestions are welcome :D
+
 Kevin Wong, [@kevinwl02](https://twitter.com/kevinwl02)
 
 ##License
