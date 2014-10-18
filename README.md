@@ -34,7 +34,7 @@ Then, encapsulate the view (or views) you wish to animate with the PlasmaView co
 ``` xml
 <gmk.kwl.plasmaui.view.PlasmaView
 custom:animation="pop" >
-	<View android:id="@+/your_view" />
+	<View android:id="@+id/your_view" />
 </gmk.kwl.plasmaui.view.PlasmaView>
 ```
 
