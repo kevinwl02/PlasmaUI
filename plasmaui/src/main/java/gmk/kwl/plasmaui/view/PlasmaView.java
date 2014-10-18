@@ -1,25 +1,26 @@
 package gmk.kwl.plasmaui.view;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
 import java.util.ArrayList;
 import java.util.regex.Pattern;
 
 import gmk.kwl.plasmaui.R;
-import gmk.kwl.plasmaui.animation.AnimationDirection;
 import gmk.kwl.plasmaui.animation.AnimationType;
 import gmk.kwl.plasmaui.animator.ViewAnimation;
 import gmk.kwl.plasmaui.animator.ViewAnimator;
-import gmk.kwl.plasmaui.plasma.Plasma;
+import gmk.kwl.plasmaui.helpers.DisplayHelper;
 import gmk.kwl.plasmaui.values.PlasmaDefaultValues;
 
 /**
  * Created by Kevin Wong on 13/03/14.
+ * PlasmaView: Class to be used as an animation view inside layout files
  */
 public class PlasmaView extends FrameLayout {
 
@@ -37,6 +38,7 @@ public class PlasmaView extends FrameLayout {
     public PlasmaView(Context context, AttributeSet attrs) {
         super(context, attrs);
 
+        this.setupDisplayHelper(context);
         this.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
 
         // Extract custom plasma attributes
@@ -54,7 +56,7 @@ public class PlasmaView extends FrameLayout {
         this.parseAnimations(animations, durations, delays, distances);
 
         if (auto)
-            startAnimations(false);
+            ViewAnimator.performMultianimationOnView(this, this.viewAnimations, false);
 
         if (!keepData)
             this.viewAnimations = null;
@@ -69,18 +71,25 @@ public class PlasmaView extends FrameLayout {
             ViewAnimator.performMultianimationOnView(this, this.viewAnimations, true);
 
         if (recursive) {
-            for (int i = 0; i < this.getChildCount(); i++) {
-                final View childView = this.getChildAt(i);
-                if (childView instanceof PlasmaView) {
-                    ((PlasmaView) childView).startAnimations(true);
-                }
-            }
+            loopThroughChildrenViews(this);
         }
     }
 
     // ==============================
     // Private methods
     // ==============================
+
+    private void loopThroughChildrenViews(ViewGroup parentViewGroup) {
+        for (int i = 0; i < parentViewGroup.getChildCount(); i++) {
+            final View childView = parentViewGroup.getChildAt(i);
+            if (childView instanceof PlasmaView) {
+                ((PlasmaView) childView).startAnimations(true);
+            }
+            else if (childView instanceof ViewGroup) {
+                loopThroughChildrenViews((ViewGroup)childView);
+            }
+        }
+    }
 
     private void parseAnimations(String animations, String durations, String delays, String distances) {
 
@@ -177,6 +186,12 @@ public class PlasmaView extends FrameLayout {
 
             viewAnimation.setExtraProperties(properties);
         }
+    }
+
+    private void setupDisplayHelper(Context context) {
+
+        Resources resources = context.getResources();
+        DisplayHelper.getSharedInstance().setDisplayMetrics(resources.getDisplayMetrics());
     }
 
     // ==============================

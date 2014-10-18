@@ -1,5 +1,6 @@
 package gmk.kwl.plasmaui.animator;
 
+import android.util.Log;
 import android.view.View;
 import android.view.animation.AnimationSet;
 
@@ -33,9 +34,10 @@ public class ViewAnimator {
 
         animationSet.setFillAfter(true);
         if (startNow)
-            animationSet.startNow();
-        else
+            view.startAnimation(animationSet);
+        else {
             animationSet.start();
-        view.setAnimation(animationSet);
+            view.setAnimation(animationSet);
+        }
     }
 }

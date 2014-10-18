@@ -1,11 +1,13 @@
 package gmk.kwl.plasmaui.animation.animations.base;
 
+import android.util.Log;
 import android.view.animation.AnimationSet;
 import android.view.animation.TranslateAnimation;
 
 import gmk.kwl.plasmaui.animation.AnimationDirection;
 import gmk.kwl.plasmaui.animation.AnimationProperties;
 import gmk.kwl.plasmaui.animation.PlasmaAnimation;
+import gmk.kwl.plasmaui.helpers.DisplayHelper;
 
 /**
  * Created by Kevin Wong on 20/03/14.
@@ -45,6 +47,8 @@ public abstract class PlasmaTranslateAnimation extends PlasmaAnimation {
 
     protected TranslateAnimation createTranslationAnimationIn(AnimationDirection animationDirection, float distance) {
 
+        distance = DisplayHelper.getSharedInstance().pixelsFromDips(distance);
+
         switch (animationDirection) {
 
             case Up:    return new TranslateAnimation(0, 0, distance, 0);
@@ -58,6 +62,8 @@ public abstract class PlasmaTranslateAnimation extends PlasmaAnimation {
 
     protected TranslateAnimation createTranslationAnimationOut(AnimationDirection animationDirection, float distance) {
 
+        distance = DisplayHelper.getSharedInstance().pixelsFromDips(distance);
+
         switch (animationDirection) {
 
             case Up:    return new TranslateAnimation(0, 0, 0, -distance);
@@ -70,6 +76,9 @@ public abstract class PlasmaTranslateAnimation extends PlasmaAnimation {
     }
 
     protected TranslateAnimation createTranslateAnimationWithStartAndEnd(AnimationDirection animationDirection, float startDistance, float endDistance) {
+
+        startDistance = DisplayHelper.getSharedInstance().pixelsFromDips(startDistance);
+        endDistance = DisplayHelper.getSharedInstance().pixelsFromDips(endDistance);
 
         switch (animationDirection) {
 

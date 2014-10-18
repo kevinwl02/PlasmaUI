@@ -1,10 +1,18 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<!-- This extra view is used to group child animations,
+in order to be able to execute them later in a single call -->
+<gmk.kwl.plasmaui.view.PlasmaView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:custom="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fff"
-    tools:context="gmk.kwl.plasmaui.plasmademo.MainActivity">
+    tools:context="gmk.kwl.plasmaui.plasmademo.MainActivity"
+    android:id="@+id/auto_animation_view_group">
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <gmk.kwl.plasmaui.view.PlasmaView
         custom:duration="1000"
@@ -81,7 +89,7 @@
 
     <gmk.kwl.plasmaui.view.PlasmaView
         custom:delay="3500"
-        custom:distance="200"
+        custom:distance="120"
         custom:animation="bounce:up"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -94,4 +102,22 @@
             android:src="@drawable/droidhi"/>
     </gmk.kwl.plasmaui.view.PlasmaView>
 
+    <gmk.kwl.plasmaui.view.PlasmaView
+        custom:delay="3700"
+        custom:animation="fadein"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="10dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="30dp">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Replay"
+            android:id="@+id/replay_button"/>
+    </gmk.kwl.plasmaui.view.PlasmaView>
+
 </RelativeLayout>
+</gmk.kwl.plasmaui.view.PlasmaView>

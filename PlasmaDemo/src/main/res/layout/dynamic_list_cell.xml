@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
-        custom:distance="0;600"
+        custom:distance="0;300"
         custom:auto="false"
         custom:delay="500"
         custom:animation="rotateInPlace:180;slide:left">
