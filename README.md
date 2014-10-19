@@ -166,6 +166,7 @@ If the `recursive` parameter is set to `true` and the plasma view has children v
 
 ##Future features
 
+* Maven release coming soon!
 * Animations extensibility
 * Animations automated creation
 
