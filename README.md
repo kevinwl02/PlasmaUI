@@ -22,6 +22,29 @@ The library currently supports this animation types:
 
 `Bounce`,`FadeIn`,`FadeOut`,`Move`,`Pop`,`RotateIn`,`RotateInPlace`,`RotateOut`,`Shake`,`Slide`,`ZoomIn`,`ZoomOut`
 
+##Installation
+
+You can install it by adding the maven dependency into your `pom.xml` file:
+
+```xml
+<dependency>
+	<groupId>com.github.kevinwl02.plasmaui<groupId>
+	<artifactId>library</artifactId>
+	<version>0.0.1</version>
+	<type>aar</type>
+</dependency>
+```
+
+or in your `build.gradle` file:
+
+```groovy
+dependencies {
+	compile 'com.github.kevinwl02.plasmaui:library:0.0.1@aar'
+}
+```
+
+or download, compile and add the `.aar` manually.
+
 ##Usage
 
 To create an animation, first go into your layout file and define a xml namespace alias to the library:
